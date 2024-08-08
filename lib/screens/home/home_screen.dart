@@ -1,7 +1,10 @@
 import 'package:eshop/constants/colors.dart';
+import 'package:eshop/models/product_model.dart';
 import 'package:eshop/screens/home/widgets/image_slider.dart';
+import 'package:eshop/screens/home/widgets/product_card_widget.dart';
 import 'package:eshop/screens/home/widgets/product_categories.dart';
-import 'package:eshop/screens/mainWidgets/custom_app_bar.dart';
+import 'package:eshop/screens/widgets/custom_app_bar.dart';
+import 'package:eshop/screens/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -60,7 +63,40 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const SizedBox(height: 20),
             // Categories
-            ProductCategoryWidget()
+            const ProductCategoryWidget(),
+
+            const SizedBox(height: 20),
+            // products
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                TextWidget(
+                  text: 'Special Products',
+                  color: Colors.black,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+                TextWidget(
+                  text: 'See All',
+                  fontSize: 16,
+                ),
+              ],
+            ),
+            GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 0.75,
+                crossAxisSpacing: 20,
+                mainAxisSpacing: 20,
+              ),
+              padding: EdgeInsets.zero,
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: allProducts.length,
+              itemBuilder: (context, index) {
+                return ProductCard(product: allProducts[index]);
+              },
+            )
           ],
         ),
       ),

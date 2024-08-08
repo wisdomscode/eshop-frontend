@@ -47,7 +47,11 @@ class _ProductCategoryWidgetState extends State<ProductCategoryWidget> {
                   const SizedBox(height: 5),
                   Text(
                     category.title,
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                      color: selectedCategory == index ? Colors.white : Colors.black,
+                    ),
                   )
                 ],
               ),
