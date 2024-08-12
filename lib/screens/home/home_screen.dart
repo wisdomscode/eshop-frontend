@@ -62,6 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
             const SizedBox(height: 20),
+
             // Categories
             const ProductCategoryWidget(),
 
@@ -83,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
             GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 0.75,
                 crossAxisSpacing: 20,

@@ -129,7 +129,7 @@ final List<Product> allProducts = [
     quantity: 1,
   ),
   Product(
-    title: "  Pants",
+    title: "Pants",
     description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec massa sapien faucibus et molestie ac feugiat. In massa tempor nec feugiat nisl. Libero id faucibus nisl tincidunt.",
     image: "images/women/pants.png",
