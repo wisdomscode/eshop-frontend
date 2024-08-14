@@ -37,6 +37,7 @@ final List<Product> allProducts = [
       Colors.black,
       Colors.amber,
       Colors.purple,
+      Colors.red,
     ],
     category: "Electronics",
     review: "(20 Reviews)",

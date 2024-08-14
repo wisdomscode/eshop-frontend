@@ -1,3 +1,4 @@
+import 'package:eshop/screens/detail/widgets/detail_page_appbar.dart';
 import 'package:flutter/material.dart';
 
 class DetailImageSlider extends StatelessWidget {

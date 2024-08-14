@@ -1,9 +1,10 @@
 import 'package:eshop/constants/colors.dart';
 import 'package:eshop/models/product_model.dart';
+import 'package:eshop/screens/detail/widgets/add_to_cart.dart';
 import 'package:eshop/screens/detail/widgets/detail_image_slider.dart';
 import 'package:eshop/screens/detail/widgets/detail_page_appbar.dart';
 import 'package:eshop/screens/detail/widgets/item_details.dart';
-import 'package:eshop/screens/widgets/text_widget.dart';
+import 'package:eshop/screens/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailScreen extends StatefulWidget {
@@ -20,12 +21,13 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const CustomAppBar(),
+      floatingActionButton: AddToCart(product: widget.product),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              // Custom AppBar
-              const DetailPageAppbar(),
+              // DetailPageAppbar(),
 
               // Detail Image Slider
               DetailImageSlider(
@@ -36,6 +38,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   });
                 },
               ),
+
               const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
