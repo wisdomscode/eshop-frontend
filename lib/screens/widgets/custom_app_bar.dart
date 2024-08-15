@@ -1,5 +1,8 @@
 import 'package:eshop/bottom_nav_bar.dart';
 import 'package:eshop/constants/colors.dart';
+import 'package:eshop/providers/add_to_cart_provider.dart';
+import 'package:eshop/screens/cart/cart_screen.dart';
+import 'package:eshop/screens/favorite/favorites_screen.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -9,6 +12,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = CartProvider.of(context);
+    final cartItemsList = provider.cart;
+
     return AppBar(
       leading: IconButton(
         onPressed: () {
@@ -44,7 +50,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 backgroundColor: kprimaryBackgroungColor,
                 padding: const EdgeInsets.all(10),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => CartScreen(),
+                  ),
+                );
+              },
               icon: const Icon(
                 Icons.shopping_cart_outlined,
                 size: 30,
@@ -61,8 +73,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   borderRadius: BorderRadius.circular(10),
                   color: kprimaryColor,
                 ),
-                child: const Text(
-                  '0',
+                child: Text(
+                  cartItemsList.length.toString(),
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
@@ -74,19 +86,25 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ],
         ),
         // Notification
-        const SizedBox(width: 10),
-        IconButton(
-          style: IconButton.styleFrom(
-            backgroundColor: kprimaryBackgroungColor,
-            padding: const EdgeInsets.all(10),
-          ),
-          onPressed: () {},
-          icon: const Icon(
-            Icons.notifications_outlined,
-            size: 30,
-          ),
-        ),
         const SizedBox(width: 15),
+        // IconButton(
+        //   style: IconButton.styleFrom(
+        //     backgroundColor: kprimaryBackgroungColor,
+        //     padding: const EdgeInsets.all(10),
+        //   ),
+        //   onPressed: () {
+        //     Navigator.of(context).push(
+        //       MaterialPageRoute(
+        //         builder: (context) => FavoritesScreen(),
+        //       ),
+        //     );
+        //   },
+        //   icon: const Icon(
+        //     Icons.notifications_outlined,
+        //     size: 30,
+        //   ),
+        // ),
+        // const SizedBox(width: 15),
         // Popup menu
         PopupMenuButton(
           offset: const Offset(0, 60),
@@ -208,6 +226,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             }
           },
         ),
+        const SizedBox(width: 15),
       ],
     );
   }

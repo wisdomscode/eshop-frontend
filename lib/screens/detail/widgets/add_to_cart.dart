@@ -1,5 +1,6 @@
 import 'package:eshop/constants/colors.dart';
 import 'package:eshop/models/product_model.dart';
+import 'package:eshop/providers/add_to_cart_provider.dart';
 import 'package:flutter/material.dart';
 
 class AddToCart extends StatefulWidget {
@@ -16,6 +17,8 @@ class _AddToCartState extends State<AddToCart> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = CartProvider.of(context);
+
     return Padding(
       padding: const EdgeInsets.only(left: 30.0),
       child: Container(
@@ -82,6 +85,7 @@ class _AddToCartState extends State<AddToCart> {
               onTap: () {
                 print('Added to cart');
                 // if items is add then show this snackbar
+                provider.addProductToCart(widget.product);
                 const snackBar = SnackBar(
                   content: Text(
                     "Successfully added!",
