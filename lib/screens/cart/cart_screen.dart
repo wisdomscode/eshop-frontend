@@ -1,6 +1,7 @@
 import 'package:eshop/constants/colors.dart';
 import 'package:eshop/providers/add_to_cart_provider.dart';
-import 'package:eshop/screens/cart/checkout_box.dart';
+import 'package:eshop/screens/cart/widgets/checkout_box.dart';
+import 'package:eshop/screens/widgets/back_button.dart';
 import 'package:eshop/screens/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +37,9 @@ class _CartScreenState extends State<CartScreen> {
     }
 
     return Scaffold(
-        appBar: CustomAppBar(),
+        appBar: CustomAppBar(
+          leading: BackButtonWidget(),
+        ),
         bottomSheet: CheckOutBox(),
         body: Column(
           children: [
@@ -147,7 +150,7 @@ class _CartScreenState extends State<CartScreen> {
                                     icon: const Icon(
                                       Icons.delete,
                                       color: Colors.red,
-                                      size: 20,
+                                      size: 30,
                                     ),
                                   ),
                                   // for items quantity

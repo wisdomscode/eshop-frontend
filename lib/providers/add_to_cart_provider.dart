@@ -6,6 +6,9 @@ class CartProvider extends ChangeNotifier {
   final List<Product> _cart = [];
   List<Product> get cart => _cart;
 
+  double _netPayAfterDiscount = 0.0;
+  double get netPayAfterDiscount => _netPayAfterDiscount;
+
   void addProductToCart(Product product) {
     if (_cart.contains(product)) {
       for (Product element in _cart) {
@@ -37,6 +40,7 @@ class CartProvider extends ChangeNotifier {
     for (Product product in _cart) {
       myTotal += product.price * product.quantity;
     }
+    _netPayAfterDiscount = myTotal;
     return myTotal;
   }
 

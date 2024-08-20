@@ -3,6 +3,7 @@ import 'package:eshop/models/product_model.dart';
 import 'package:eshop/screens/home/widgets/image_slider.dart';
 import 'package:eshop/screens/home/widgets/product_card_widget.dart';
 import 'package:eshop/screens/home/widgets/product_categories.dart';
+import 'package:eshop/screens/widgets/app_logo.dart';
 import 'package:eshop/screens/widgets/custom_app_bar.dart';
 import 'package:eshop/screens/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const CustomAppBar(),
+        appBar: const CustomAppBar(
+          leading: AppLogo(),
+        ),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(left: 20.0, right: 20, bottom: 30),

@@ -4,6 +4,7 @@ import 'package:eshop/screens/detail/widgets/add_to_cart.dart';
 import 'package:eshop/screens/detail/widgets/detail_image_slider.dart';
 import 'package:eshop/screens/detail/widgets/detail_page_appbar.dart';
 import 'package:eshop/screens/detail/widgets/item_details.dart';
+import 'package:eshop/screens/widgets/back_button.dart';
 import 'package:eshop/screens/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -21,14 +22,14 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: const CustomAppBar(
+        leading: BackButtonWidget(),
+      ),
       floatingActionButton: AddToCart(product: widget.product),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              // DetailPageAppbar(),
-
               // Detail Image Slider
               DetailImageSlider(
                 image: widget.product.image,
